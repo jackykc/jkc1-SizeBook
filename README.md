@@ -1,5 +1,6 @@
 # 301A1
-''
+#Format
+```
 []show a list of all records, 
 []along with a count of the number of records
 [x]add a new record (which always appends to the bottom end of the list)
@@ -15,4 +16,4 @@
 []The app must be persistent. That is, exiting and fully stopping the app should not lose data.
 
 []The app name must show up as YOURCCID-SizeBook (e.g., kennyw-SizeBook).
-''
+```
