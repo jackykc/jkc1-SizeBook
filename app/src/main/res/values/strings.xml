@@ -1,0 +1,20 @@
+<resources>
+    <string name="header">Size Book</string>
+    <string name="app_name">assignment1</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="add">Add</string>
+    <string name="edit_message">Enter a message</string>
+
+    <string name="Name">Name: </string>
+    <string name="Date">Date: </string>
+    <string name="Neck">Neck: </string>
+    <string name="Bust">Bust: </string>
+    <string name="Chest">Chest: </string>
+    <string name="Waist">Waist: </string>
+    <string name="Hip">Hip: </string>
+    <string name="Inseam">Inseam: </string>
+
+    <string name="EditDone">Done Editing</string>
+
+</resources>
