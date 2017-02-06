@@ -25,7 +25,7 @@ public class Record implements Parcelable {
     private String comment;
 
     public Record() {
-        this.name = "A text";
+        this.name = "";
         this.date = "yyyy-mm-dd";
         this.neck = 0;
         this.bust = 0;
@@ -33,7 +33,7 @@ public class Record implements Parcelable {
         this.waist = 0;
         this.hip = 0;
         this.inseam = 0;
-        this.comment = "A comment";
+        this.comment = "";
     }
 
     private Record(Parcel in) {

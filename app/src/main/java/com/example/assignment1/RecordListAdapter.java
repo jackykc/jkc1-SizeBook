@@ -36,40 +36,43 @@ public class RecordListAdapter extends ArrayAdapter<Record> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View row = convertView;
+        View row;
 
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         row = inflater.inflate(layoutResourceId, parent, false);
 
         RecordHolder holder = new RecordHolder();
         holder.record = items.get(position);
-//        holder.editButton = (Button) row.findViewById(R.id.edit);
-//        holder.deleteButton = (Button) row.findViewById(R.id.delete);
 
         holder.name = (TextView) row.findViewById(R.id.record_name);
+        holder.date = (TextView) row.findViewById(R.id.record_date);
+        holder.neck = (TextView) row.findViewById(R.id.record_neck);
+        holder.bust = (TextView) row.findViewById(R.id.record_bust);
         holder.chest = (TextView) row.findViewById(R.id.record_chest);
 
-//        System.out.println(holder.record.getName());
-//
         setupItem(holder);
-//        row.setTag(1);
-
 
         return row;
     }
 
     private void setupItem(RecordHolder holder) {
         holder.name.setText(holder.record.getName());
+        holder.date.setText(holder.record.getDate());
+        holder.neck.setText(Float.toString(holder.record.getNeck()));
+        holder.bust.setText(Float.toString(holder.record.getBust()));
         holder.chest.setText(Float.toString(holder.record.getChest()));
+
     }
 
     // move this to a different file?
     public static class RecordHolder {
         Record record;
         TextView name;
+        TextView date;
+        TextView neck;
+        TextView bust;
         TextView chest;
-        Button editButton;
-        Button deleteButton;
+
     }
 
 }
