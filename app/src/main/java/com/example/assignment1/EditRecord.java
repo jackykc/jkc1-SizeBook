@@ -1,5 +1,3 @@
-//http://stackoverflow.com/questions/2115758/how-do-i-display-an-alert-dialog-on-android
-
 package com.example.assignment1;
 
 import android.app.Activity;
