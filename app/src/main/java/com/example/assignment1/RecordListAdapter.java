@@ -15,12 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-//https://looksok.wordpress.com/2012/11/03/android-custom-listview-tutorial/
-
 /**
- * Created by Ayuzawa on 2017-01-29.
+ * RecordListAdapter is an adapter to list the record name and its attributes
+ * as text views
+ * Reference taken from
+ * //https://looksok.wordpress.com/2012/11/03/android-custom-listview-tutorial/
+ * on 2017-01-24
  */
-
 public class RecordListAdapter extends ArrayAdapter<Record> {
 
     private ArrayList<Record> items;
@@ -64,7 +65,6 @@ public class RecordListAdapter extends ArrayAdapter<Record> {
 
     }
 
-    // move this to a different file?
     public static class RecordHolder {
         Record record;
         TextView name;

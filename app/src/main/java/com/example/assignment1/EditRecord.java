@@ -6,34 +6,25 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+/**
+ * EditRecord activity
+ * This activity allows the user to edit the record
+ * If the request was to add, the only button given is to save the record
+ * If the request was to edit, user has the option to delete or save the record
+ */
 public class EditRecord extends Activity {
 
     Record record;
     EditText editName, editDate, editNeck, editBust,
-            editChest, editWaist, editHip, editInseam;
-
-    ArrayList<EditText> editTextArray;
-    boolean editing = false;
+            editChest, editWaist, editHip, editInseam, editComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +37,12 @@ public class EditRecord extends Activity {
         final int index = getIntent().getIntExtra("SIZEBOOK_RECORD_INDEX", 0);
         record = getIntent().getParcelableExtra("SIZEBOOK_RECORD");
 
+        // request is to add a record
+        if(request != 1) {
+            deleteButton.setVisibility(View.GONE);
+        }
 
-
+        // initialize the EditTexts for the record's fields
         editName = (EditText) findViewById(R.id.edit_name);
         editDate = (EditText) findViewById(R.id.edit_date);
         editNeck = (EditText) findViewById(R.id.edit_neck);
@@ -56,8 +51,9 @@ public class EditRecord extends Activity {
         editWaist = (EditText) findViewById(R.id.edit_waist);
         editHip = (EditText) findViewById(R.id.edit_hip);
         editInseam = (EditText) findViewById(R.id.edit_inseam);
+        editComment = (EditText) findViewById(R.id.edit_comment);
 
-
+        // set the text of the record's attributes
         editName.setText(record.getName(), TextView.BufferType.EDITABLE);
         editDate.setText(record.getDate(), TextView.BufferType.EDITABLE);
         editNeck.setText(Float.toString(record.getNeck()), TextView.BufferType.EDITABLE);
@@ -66,12 +62,9 @@ public class EditRecord extends Activity {
         editWaist.setText(Float.toString(record.getWaist()), TextView.BufferType.EDITABLE);
         editHip.setText(Float.toString(record.getHip()), TextView.BufferType.EDITABLE);
         editInseam.setText(Float.toString(record.getInseam()), TextView.BufferType.EDITABLE);
+        editComment.setText(record.getComment(), TextView.BufferType.EDITABLE);
 
-        // we wanted to edit a record
-        if(request != 1) {
-            deleteButton.setVisibility(View.GONE);
-        }
-
+        // Save the record
         doneButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -84,8 +77,7 @@ public class EditRecord extends Activity {
                 String waist = editWaist.getText().toString();
                 String hip = editHip.getText().toString();
                 String inseam = editInseam.getText().toString();
-
-                // do error checking
+                String comment = editComment.getText().toString();
 
                 record.setName(name);
                 record.setDate(date);
@@ -95,7 +87,9 @@ public class EditRecord extends Activity {
                 record.setWaist(Float.parseFloat(waist));
                 record.setHip(Float.parseFloat(hip));
                 record.setInseam(Float.parseFloat(inseam));
+                record.setComment(comment);
 
+                // return the record we edited and its index
                 Intent output = new Intent();
                 output.putExtra("EDITRECORD_RECORD_INDEX", index);
                 output.putExtra("EDITRECORD_RECORD", record);
@@ -105,6 +99,11 @@ public class EditRecord extends Activity {
             }
         });
 
+        /* deletes a record, has a confirmation window
+        * Confirmation window referenced from
+        * http://stackoverflow.com/questions/26097513/android-simple-alert-dialog/26097588#26097588
+        * on 2017-02-02
+        * */
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -141,6 +140,5 @@ public class EditRecord extends Activity {
         setResult(0);
         finish();
     }
-
 
 }

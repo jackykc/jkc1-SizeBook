@@ -1,5 +1,4 @@
 <resources>
-    <string name="header">Size Book</string>
     <string name="app_name">jkc1-SizeBook</string>
 
     <string name="add">Add</string>
@@ -14,10 +13,8 @@
     <string name="Inseam">Inseam: </string>
     <string name="Comment">Comment: </string>
 
-    <string name="EditDone">Done Editing</string>
     <string name="Delete">Delete</string>
     <string name="SaveRecord">Save Record</string>
-    <string name="Edit">Edit</string>
 
     <string name = "Count">Number of Records:</string>
 

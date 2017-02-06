@@ -6,12 +6,22 @@ import android.os.Parcelable;
 import java.util.Date;
 
 /**
- * Created by jkc1 on 2017-01-27.
- */
-//http://stackoverflow.com/questions/13709362/passing-arraylist-of-objects-through-intent-java-android?rq=1
-// http://stackoverflow.com/questions/222214/managing-constructors-with-many-parameters-in-java/222295#222295
-//http://stackoverflow.com/questions/920306/sending-data-back-to-the-main-activity-in-android
-
+ * Record Class:
+ * Contains the following attributes
+ * - name
+ * - date
+ * - neck
+ * - bust
+ * - chest
+ * - waist
+ * - hip
+ * - inseam
+ * - comment
+ * implements parcelable to send the object to a different activity
+ * Referenced from
+ * //http://stackoverflow.com/questions/13709362/passing-arraylist-of-objects-through-intent-java-android?rq=1
+ * on 2017-01-24
+*/
 public class Record implements Parcelable {
 
     private String name;
@@ -64,7 +74,6 @@ public class Record implements Parcelable {
         return 0;
     }
 
-    // Just cut and paste this for now
     public static final Parcelable.Creator<Record> CREATOR = new Parcelable.Creator<Record>() {
         public Record createFromParcel(Parcel in) {
             return new Record(in);
@@ -75,6 +84,7 @@ public class Record implements Parcelable {
         }
     };
 
+    // getters and setters
     public String getName() {
         return name;
     }
@@ -147,9 +157,4 @@ public class Record implements Parcelable {
         this.comment = comment;
     }
 
-
-    @Override
-    public String toString() {
-        return name + " | " + date.toString();
-    }
 }
