@@ -94,7 +94,11 @@ public class EditRecord extends Activity {
                 output.putExtra("EDITRECORD_RECORD_INDEX", index);
                 output.putExtra("EDITRECORD_RECORD", record);
                 setResult(RESULT_OK, output);
-                finish();
+
+                // makes sure there is something in the name
+                if (name.trim().length() > 0) {
+                    finish();
+                }
 
             }
         });
