@@ -27,7 +27,7 @@ public class Record implements Parcelable {
     private String name;
     private String date;
     private float neck;
-    private float bust; // ask in forums later
+    private float bust;
     private float chest;
     private float waist;
     private float hip;
