@@ -37,10 +37,10 @@ public class MainActivity extends Activity {
     private ListView DisplayRecordList;
     private TextView countView;
 
-    RecordListAdapter adapter;
-    Record record;
+    private RecordListAdapter adapter;
+    private Record record;
 
-    int index = 0;
+    private int index = 0;
     private ArrayList<Record> recordList = new ArrayList<Record>();
 
     @Override

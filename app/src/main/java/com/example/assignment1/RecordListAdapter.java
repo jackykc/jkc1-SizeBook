@@ -65,14 +65,6 @@ public class RecordListAdapter extends ArrayAdapter<Record> {
 
     }
 
-    public static class RecordHolder {
-        Record record;
-        TextView name;
-        TextView date;
-        TextView neck;
-        TextView bust;
-        TextView chest;
 
-    }
 
 }

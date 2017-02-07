@@ -22,8 +22,8 @@ import java.util.ArrayList;
  */
 public class EditRecord extends Activity {
 
-    Record record;
-    EditText editName, editDate, editNeck, editBust,
+    private Record record;
+    private EditText editName, editDate, editNeck, editBust,
             editChest, editWaist, editHip, editInseam, editComment;
 
     @Override
