@@ -39,6 +39,7 @@ public class EditRecord extends Activity {
 
         // request is to add a record
         if(request != 1) {
+
             deleteButton.setVisibility(View.GONE);
         }
 
